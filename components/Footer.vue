@@ -2,13 +2,12 @@
   <footer class="footer">
     <div class="footer-left-wrap">
       <ul v-if="contact" class="contact">
-        <li
-          v-for="item in contact"
-          :key="item.iconComponent"
-          class="contact-item"
-        >
+        <li v-for="item in contact" :key="item.iconType" class="contact-item">
           <NavLink :link="item.link">
-            <component :is="item.iconComponent"></component>
+            <font-awesome-icon
+              :icon="item.iconComponent"
+              size="3x"
+            ></font-awesome-icon>
             {{ item.text }}
           </NavLink>
         </li>
@@ -44,23 +43,35 @@ import {
   YoutubeIcon,
 } from 'vue-feather-icons'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faGithub,
+  faFlickr,
+  fa500px,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faGithub, faFlickr, fa500px)
+
 export default {
   components: {
-    CodepenIcon,
-    CodesandboxIcon,
-    FacebookIcon,
-    GithubIcon,
-    GitlabIcon,
-    GlobeIcon,
-    InstagramIcon,
-    LinkedinIcon,
-    MailIcon,
-    MessageSquareIcon,
-    MusicIcon,
-    PhoneIcon,
-    TwitterIcon,
-    VideoIcon,
-    YoutubeIcon,
+    // CodepenIcon,
+    // CodesandboxIcon,
+    // FacebookIcon,
+    // GithubIcon,
+    // GitlabIcon,
+    // GlobeIcon,
+    // InstagramIcon,
+    // LinkedinIcon,
+    // MailIcon,
+    // MessageSquareIcon,
+    // MusicIcon,
+    // PhoneIcon,
+    // TwitterIcon,
+    // VideoIcon,
+    // YoutubeIcon,
+    FontAwesomeIcon,
   },
 
   computed: {
@@ -71,6 +82,7 @@ export default {
       )
         .map(({ type, link }) => {
           return {
+            iconType: type,
             iconComponent: this.getIconComponentName(type),
             link,
           }
@@ -88,39 +100,51 @@ export default {
   methods: {
     getIconComponentName(contactType) {
       switch (contactType) {
-        case 'codepen':
-          return 'CodepenIcon'
-        case 'codesandbox':
-          return 'CodesandboxIcon'
-        case 'facebook':
-          return 'FacebookIcon'
         case 'github':
-          return 'GithubIcon'
-        case 'gitlab':
-          return 'GitlabIcon'
-        case 'instagram':
-          return 'InstagramIcon'
+          return faGithub
+        case 'flickr':
+          return faFlickr
+        case '500px':
+          return fa500px
         case 'linkedin':
-          return 'LinkedinIcon'
-        case 'mail':
-          return 'MailIcon'
-        case 'messenger':
-          return 'MessageSquareIcon'
-        case 'music':
-          return 'MusicIcon'
-        case 'phone':
-          return 'PhoneIcon'
-        case 'twitter':
-          return 'TwitterIcon'
-        case 'video':
-          return 'VideoIcon'
-        case 'web':
-          return 'GlobeIcon'
-        case 'youtube':
-          return 'YoutubeIcon'
+          return faLinkedin
         default:
           return ''
       }
+      // switch (contactType) {
+      //   case 'codepen':
+      //     return 'CodepenIcon'
+      //   case 'codesandbox':
+      //     return 'CodesandboxIcon'
+      //   case 'facebook':
+      //     return 'FacebookIcon'
+      //   case 'github':
+      //     return 'GithubIcon'
+      //   case 'gitlab':
+      //     return 'GitlabIcon'
+      //   case 'instagram':
+      //     return 'InstagramIcon'
+      //   case 'linkedin':
+      //     return 'LinkedinIcon'
+      //   case 'mail':
+      //     return 'MailIcon'
+      //   case 'messenger':
+      //     return 'MessageSquareIcon'
+      //   case 'music':
+      //     return 'MusicIcon'
+      //   case 'phone':
+      //     return 'PhoneIcon'
+      //   case 'twitter':
+      //     return 'TwitterIcon'
+      //   case 'video':
+      //     return 'VideoIcon'
+      //   case 'web':
+      //     return 'GlobeIcon'
+      //   case 'youtube':
+      //     return 'YoutubeIcon'
+      //   default:
+      //     return ''
+      // }
     },
   },
 }
