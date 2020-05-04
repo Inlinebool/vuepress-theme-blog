@@ -50,9 +50,10 @@ import {
   fa500px,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faGithub, faFlickr, fa500px)
+library.add(faGithub, faFlickr, fa500px, faEnvelopeSquare)
 
 export default {
   components: {
@@ -108,6 +109,8 @@ export default {
           return fa500px
         case 'linkedin':
           return faLinkedin
+        case 'mail':
+          return faEnvelopeSquare
         default:
           return ''
       }
