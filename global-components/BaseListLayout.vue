@@ -160,7 +160,7 @@ export default {
 .ui-post-summary
   font-size 14px
   color rgba($darkTextColor, 0.54)
-  font-weight 200
+  font-weight 300
 
 .ui-post-meta
   display inline-flex
@@ -189,15 +189,15 @@ export default {
 
 .ui-post-date
   color rgba($darkTextColor, 0.54)
-  font-weight 200
+  font-weight 300
 
 .ui-post-tag
   color rgba($darkTextColor, 0.54)
-  font-weight 200
+  font-weight 300
 
   a
     color inherit
-    font-weight 200
+    font-weight 300
     text-decoration none
     margin-right 5px
 
